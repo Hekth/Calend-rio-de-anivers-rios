@@ -1,0 +1,187 @@
+@import url("./reset.css");
+@import url("./variaveis.css");
+
+* {
+    font-family: var(--inter);
+    color: var(--preto);
+    box-sizing: border-box;
+}
+
+/* Cabeçalho */
+.cabecalho {
+    text-align: center;
+    padding: 3rem;
+    background-color: var(--azul);
+}
+
+.cabecalho__titulo {
+    font-size: 2rem;
+    color: var(--branco);
+    font-family: var(--inter);
+    font-weight: 500;
+}
+
+
+/* Main */
+
+.principal {
+    padding: 3rem;
+}
+
+/* Formulário */
+.principal__formulario {
+    width: 50%;
+    max-width: 800px;
+    min-width: 250px;
+    margin-bottom: 3rem;
+}
+
+.formulario__container-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 2.5rem;
+}
+
+.formulario__container-campo div {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.qtd-caracteres {
+    color: var(--preto);
+    font-family: monospace;
+}
+
+label {
+    font-weight: 600;
+}
+
+.formulario__container-campo small {
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.form-aviso {
+    color: var(--vermelho);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+input {
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--cinza);
+    width: 100%;
+}
+
+.formulario__container-campo input:invalid {
+    border: 1px solid var(--vermelho);
+}
+
+.principal__formulario button, .edita-campos__formulario button {
+    padding: 1.2rem;
+    border: none;
+    background-color: var(--verde);
+    color: var(--branco);
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 200ms ease-in-out;
+}
+
+.principal__formulario button:hover, .edita-campos__formulario button:hover {
+    transform: scale(1.1);
+}
+
+/* Tabela */
+.tabela {
+    width: 100%;
+    text-align: left;
+    margin: 0 auto;
+    display: none;
+}
+
+.tabela th {
+    font-weight: 600;
+}
+
+.tabela th, td {
+    border: 2px solid var(--preto);
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+.tabela td:nth-child(3) {
+    text-align: center;
+}
+
+.tabela td button {
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.tabela td button:nth-child(1) {
+    color: var(--laranja);
+}
+
+.tabela td button:nth-child(2) {
+    color: var(--vermelho);
+}
+
+.tabela tr th:nth-child(1), .tabela tr td:nth-child(1) {
+    width: 30%;
+}
+
+.tabela tr th:nth-child(2), .tabela tr td:nth-child(2) {
+    width: 25%;
+}
+
+.tabela tr th:nth-child(3), .tabela tr td:nth-child(3) {
+    width: 15%;
+}
+
+.tabela tr th:nth-child(even), .tabela tr td:nth-child(even) {
+    background-color: var(--cinza);
+}
+
+/* MODAL */
+.edita-campos-modal {
+    width: 80vw;
+    min-width: 250px;
+    max-width: 800px;
+    border: 3px solid var(--azul);
+}
+
+.edita-campos-modal .cancelarBtn{
+    background-color: var(--cinza-escuro);
+    margin-left: 0.5rem;
+}
+
+/* LISTA VAZIA SPAN */
+.lista-vazia {
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+    display: block;
+}
+
+@media screen and (max-width: 400px) {
+    .principal {
+        padding: 1rem;
+    }
+
+    .tabela {
+        width: 90%;
+        font-size: 0.8rem;
+    }
+
+    .tabela th, td {
+        padding: 0.5rem;
+    }
+}

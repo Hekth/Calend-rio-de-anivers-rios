@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./imgs/calendario.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script type="module" src="script.js" defer></script>
+    <title>Calendário de Aniversários</title>
+</head>
+<body>
+    <header class="cabecalho">
+        <h1 class="cabecalho__titulo">
+            Meus Aniversários
+        </h1>
+    </header>
+    <main class="principal">
+        <form class="principal__formulario">
+            <div class="formulario__container-campo">
+                <label for="nome">Nome da pessoa <small>(campo obrigatório)</small></label>
+                <div>
+                    <input class="campo-formulario" type="text" placeholder="Digite o nome da pessoa aqui" id="nome" maxlength="60" minlength="3">
+                    <span class="campo-nome-qtd-caracteres qtd-caracteres">60</span>
+                </div>
+                <span class="formulario-aviso-nome form-aviso"></span>
+            </div>
+            <div class="formulario__container-campo">
+                <label for="nascimento">Data de nascimento <small>(campo obrigatório)</small></label>
+                <div>
+                    <input pattern="\d{2}\/\d{2}\/\d{4}" class="campo-formulario" type="text" placeholder="Formato: dd/mm/aaaa" id="nascimento" maxlength="10" minlength="10">
+                    <span class="campo-data-qtd-caracteres qtd-caracteres">10</span>
+                </div>
+                <span class="formulario-aviso-nascimento form-aviso"></span>
+            </div>
+            <button type="submit">
+                Salvar
+            </button>
+        </form>
+        <section class="container-tabela">
+            <span class="lista-vazia">Sua lista está vazia. ;_; </span>
+            <table class="tabela">
+                <tr>
+                    <th>Nome</th>
+                    <th>Data de nascimento</th>
+                    <th>Ações</th>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <dialog class="edita-campos-modal">
+        <form class="edita-campos__formulario">
+            <div class="formulario__container-campo">
+                <label for="novoNome">Novo nome da pessoa</label>
+                <div>
+                    <input class="campo-formulario-modal" type="text" placeholder="Digite o novo nome da pessoa aqui" id="novoNome" maxlength="60" minlength="3">
+                    <span class="campo-nome-qtd-caracteres qtd-caracteres">60</span>
+                </div>
+                <span class="formulario-aviso-novo-nome form-aviso"></span>
+            </div>
+            <div class="formulario__container-campo">
+                <label for="novoNascimento">Nova data de nascimento</label>
+                <div>
+                    <input pattern="\d{2}\/\d{2}\/\d{4}" class="campo-formulario-modal" type="text" placeholder="Formato: dd/mm/aaaa" id="novoNascimento" maxlength="10" minlength="10">
+                    <span class="campo-data-qtd-caracteres qtd-caracteres">10</span>
+                </div>
+                <span class="formulario-aviso-novo-nascimento form-aviso"></span>
+            </div>
+            <button type="submit">
+                Salvar
+            </button>
+            <button class="cancelarBtn" type="button">
+                Cancelar
+            </button>
+        </form>
+    </dialog>
+</body>
+</html>
