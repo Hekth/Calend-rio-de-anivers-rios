@@ -18,16 +18,15 @@ const cancelarBtnModal = document.querySelector('.cancelarBtn');
 const listaVazia = document.querySelector('.lista-vazia');
 
 function verificaLocalStorage() {
-    const storage = JSON.parse(localStorage.getItem('aniversarios'));
-    if (storage) {
-        storage.forEach((aniversario) => {
-            criaTabela(aniversario);
-        });
-        if (storage.length > 0) {
-            listaVazia.style.display = "none";
-            tabela.style.display = "table";
-        }
-    }
+    const storage = JSON.parse(localStorage.getItem('aniversarios')) || [];
+    storage.forEach((aniversario) => {
+        criaTabela(aniversario);
+    });
+
+    if (storage.length > 0) {
+        listaVazia.style.display = "none";
+        tabela.style.display = "table";
+    } 
 }
 
 verificaLocalStorage();
@@ -52,12 +51,14 @@ modalForm.addEventListener('submit', (e) => {
     });
     const tds = trEditando.querySelectorAll('.td');
 
-    storage.forEach((elemento) => {
-        if (elemento.id === trEditando.id) {
-            elemento.nome = tds[0].innerText;
-            elemento.data = tds[1].innerText;
-        }
-    });
+    if (storage && storage.length > 0) {
+        storage.forEach((elemento) => {
+            if (elemento.id === trEditando.id) {
+                elemento.nome = tds[0].innerText;
+                elemento.data = tds[1].innerText;
+            }
+        });
+    }
     
     localStorage.setItem('aniversarios', JSON.stringify(storage));
 
@@ -138,7 +139,7 @@ function limpaFormulario() {
 
 function deletaAniversario(id) {
     document.getElementById(id).remove();
-    const storage = JSON.parse(localStorage.getItem('aniversarios'));
+    const storage = JSON.parse(localStorage.getItem('aniversarios')) || [];
     const filtra = storage.filter((e) => e.id !== id);
     if (filtra.length === 0) {
         listaVazia.style.display = "block";
@@ -179,7 +180,7 @@ function adicionaVerificacaoDoCampo(campo) {
 }
 
 function adicionaLocalStorage(infoAniversario) {
-    const storage = JSON.parse(localStorage.getItem('aniversarios'));
+    const storage = JSON.parse(localStorage.getItem('aniversarios')) || [];
     
     if(storage) localStorage.setItem('aniversarios', JSON.stringify([...storage, infoAniversario]));
 }
